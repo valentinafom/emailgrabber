@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Grabber Email</title>
+        <title>Email Grabber</title>
 
         <link rel="stylesheet" type="text/css" href="css/parser_main.css" media="all"/>
         <link rel="stylesheet" type="text/css" href="css/index.css" media="all"/>
@@ -14,16 +14,16 @@ header('Content-Type: text/html; charset=UTF-8');
     <body id="body">
         <div id="main">
             <table width="100%" cellspacing="10" border="0">
-                <tr><td align="center" id="title" colspan="2"><h1>Grabber Email</h1></td></tr>
-                <tr><td width="30%">
-                        <h4 id="h4">Введите запросы, каждый с новой строки.</h4>
+                <tr><td align="center" id="title" colspan="2"><h1 id="h1">Email Grabber</h1></td></tr>
+                <tr><td width="35%">
+                        <h4 id="h4">Введите запросы, каждый с новой строки</h4>
                     </td><td class="sett"><h4 id="h4">Настройки</h4>
-                    </td></tr>
+                    </td>
                 <tr><td>
                         <TEXTAREA style="width:100%; height:300px; overflow:hidden;" name="textarea" onFocus="focusTextarea()" onChange="ChangeTextarea()" onBlur="blurTextarea()" id="textarea"></TEXTAREA>
                     </td>
                     <td class="sett">
-                        <table>
+                        <table border="0">
                             <tr><td>Выберите глубину поиска:</td></tr>
                              <tr><td><!--<input name="depth" id="depth" type="text" size="30" maxlength="3" onFocus="Focus('depth')" onBlur="Blur('depth','50')" value="50"/>-->
 
