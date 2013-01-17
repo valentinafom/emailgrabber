@@ -44,6 +44,7 @@ shuffle($Data); //мешаем элементы
  * описана в ggl_parser_curl.php
  * осуществляет поиск и граббинг емэйл
  */
+
 Main($depth, $url, $Data);
 
 
