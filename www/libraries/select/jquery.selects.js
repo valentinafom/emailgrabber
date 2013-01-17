@@ -4,7 +4,7 @@
 	автор Ksayri
 	страница с описанием http://www.xiper.net/html-and-css-tricks/verstka-form/nice-select-jquery.html      */
 
-jQuery.noConflict();
+//jQuery.noConflict();
 
 jQuery(document).ready(function(){
 
@@ -93,7 +93,7 @@ if(kolOptions>selectOrCombobox)
 
 	// чтобы верхние селекты нормально перекрывали нижние, автоматически добавляем z-index в порядке убывания
 	// для уникальности id элементов селектов используется num - порядковый номер селекта на странице
-	jQuery(this).before("<div class='selectArea "+className+"' style='z-index:"+(100-num)+"'>"+
+	jQuery(this).before("<div class='selectArea "+className+"' style='z-index:"+(1-num)+"'>"+
 							"<div class='left'></div>"+ // левая часть select
 							"<div class='center_a'></div>"+ // правая часть (стрелка) select
 							"<div class='optionsDivInvisible' id='optInvis_"+num+"'>"+ // контейнер для option
@@ -149,7 +149,7 @@ jQuery("#v"+selID).val(jQuery("#"+jQuery(this).attr('id')+" > option[selected='s
 else 
 {
 // формируем костяк
-jQuery(this).before("<div class='selectArea "+className+"' style='z-index:"+(100-num)+"'>"+
+jQuery(this).before("<div class='selectArea "+className+"' style='z-index:"+(1-num)+"'>"+
 						"<div class='left'></div>"+
 						"<div class='center_a'></div>"+
 						"<div class='optionsDivInvisible' id='"+selID+"_fake'></div>"+
