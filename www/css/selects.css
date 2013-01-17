@@ -113,7 +113,7 @@ top: 0;
 right: 0;
 left: auto;
 cursor: pointer;
-z-index: 0;
+z-index: 2;
 background-position: -6px -91px;
 margin: 0 !important;
 padding: 0 !important;
@@ -130,7 +130,7 @@ background: #f4f6f8;
 position: absolute !important;
 top: 13px;
 right: 0;
-z-index: 0;
+z-index: 2;
 margin: 0 !important;
 padding: 0 !important;
 }
