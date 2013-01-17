@@ -6,7 +6,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Grabber Email</title>
 
-        <link rel="stylesheet" type="text/css" href="parser_main.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="css/parser_main.css" media="all"/>
         <link href="css/selects.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
 
