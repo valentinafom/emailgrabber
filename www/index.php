@@ -234,7 +234,7 @@ header('Content-Type: text/html; charset=UTF-8');
                             </td></tr>
                             <tr><td>Выберите URL поисковика:</td></tr>
                             <tr><td><select class="wid100" name="url" id="url">
-                                        <option value="google.ru">google.ru</option>
+                                        <option value="google.ru" selected="selected">google.ru</option>
                                         <option value="google.com">google.com</option>
                                     </select>
                                 </td></tr>
