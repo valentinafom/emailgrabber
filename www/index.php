@@ -41,7 +41,6 @@ header('Content-Type: text/html; charset=UTF-8');
     </head>
 
     <body id="body">
-        <script type="text/javascript" src="libraries/HttpRequest.js"></script>
         <script type="text/javascript">
             //автоматически глобальная переменная
             var DataArray = new Array();
@@ -76,7 +75,8 @@ header('Content-Type: text/html; charset=UTF-8');
 	
                 //DataArray кодируется в JSON и присваивается скрытому полю data
 		
-                SaveTextarea();	
+                SaveTextarea();
+                
                 var encoded = $.toJSON(DataArray);
                 var hidden = document.getElementById("data");
                 hidden.value = encoded;			
@@ -120,8 +120,9 @@ header('Content-Type: text/html; charset=UTF-8');
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
-       
+                
                 SubmitDown();
+                 
                 //document.getElementById("progressBar").style.visibility = 'visible';
                 //document.getElementById("div").style.visibility = 'visible';
                 jQuery(function($){
