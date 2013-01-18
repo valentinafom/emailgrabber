@@ -36,6 +36,8 @@ fieldset{
     border-radius:10px;
 }
 #main{
+    width: 95%;
+    margin: 0px auto;
     border:solid 1px;
     border-color:#666;
     -moz-border-radius:10px;

@@ -12,9 +12,9 @@ header('Content-Type: text/html; charset=UTF-8');
     </head>
 
     <body id="body">
+        <h1 id="h1" align="center" id="title">Email Grabber</h1>
         <div id="main">
             <table width="100%" cellspacing="10" border="0">
-                <tr><td align="center" id="title" colspan="2"><h1 id="h1">Email Grabber</h1></td></tr>
                 <tr><td width="35%">
                         <h4 id="h4">Введите запросы, каждый с новой строки</h4>
                     </td><td class="sett"><h4 id="h4">Настройки</h4>

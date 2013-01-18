@@ -100,38 +100,16 @@
                     "success":function(sResponseText){
                         bool=1;
                         if(sResponseText==0){
-                            document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google.';
+                            document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google';
                         }
                         else{
-                            document.getElementById("progressBar").innerHTML = 'Поиск завершен.';
+                            document.getElementById("progressBar").innerHTML = 'Поиск завершен';
                             document.getElementById("result").innerHTML = sResponseText;
                             document.getElementById("div").style.height = getDocumentHeight()+'px';
                         }
                     }                
                 });
                 $.ajax();
-            }
-            function SubmitDownAjax_callBack(sResponseText){
-                bool=1;
-                var MyRegExp = /\d{1,2}:\d{1,2}:\d{1,2}/;
-	
-                if(sResponseText==1){
-                    document.getElementById("progressBar").innerHTML = 'Произошла ошибка';		
-                }
-                if(sResponseText==0){
-                    document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google.';
-                }
-                if(sResponseText==2){
-                    document.getElementById("progressBar").innerHTML = 'За последние 12 часов поиск уже осуществлялся.';		
-                }
-                if(MyRegExp.test(sResponseText)){
-                    document.getElementById("progressBar").innerHTML = 'Превышено максимально допустимое число обращений к поисковой системе. Счетчик обнулиться через '+sResponseText;		
-                }
-                if(sResponseText!=0&&sResponseText!=1&&sResponseText!=2&&MyRegExp.test(sResponseText)!=true){
-                    document.getElementById("progressBar").innerHTML = 'Поиск завершен.';
-                    document.getElementById("result").innerHTML = sResponseText;
-                    document.getElementById("div").style.height = getDocumentHeight()+'px';
-                } 
             }
             function focusBody(){
                 /*Выполняется при клике на первый слой за прогрессбаром
