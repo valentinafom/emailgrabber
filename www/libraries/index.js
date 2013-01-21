@@ -73,8 +73,8 @@
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
-                var titleval = window.document.title;  
-                
+                var titleval = window.document.title;
+                window.document.title = 'поиск'; 
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
@@ -106,6 +106,7 @@
                             document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google';
                         }
                         else{
+                            window.document.title = titleval;
                             document.getElementById("progressBar").innerHTML = 'Поиск завершен';
                             document.getElementById("result").innerHTML = sResponseText;
                             document.getElementById("div").style.height = getDocumentHeight()+'px';
@@ -113,7 +114,7 @@
                     }                
                 });
                 $.ajax();
-                document.getElementById("maintitle").innerHTML = titleval;
+              // window.document.title = 'Email Grabber';
             }
             function focusBody(){
                 /*Выполняется при клике на первый слой за прогрессбаром
