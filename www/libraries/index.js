@@ -74,7 +74,7 @@
                  *ждет ответа, ответ выводит в элементе result
                  **/
                 var titleval = window.document.title;
-                window.document.title = 'поиск'; 
+                window.document.title = 'Поиск...'; 
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
