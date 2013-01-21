@@ -73,8 +73,8 @@
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
-                var titleval = document.getElementById("maintitle").innerHTML; 
-                document.getElementById("maintitle").innerHTML ='поиск'; 
+                var titleval = window.document.title;  
+                
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
