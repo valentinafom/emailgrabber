@@ -73,12 +73,16 @@
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
+                //document.getElementById("title")='поиск';
+                var titleval = document.getElementById("title").value; 
+                document.getElementById("title").innerHTML ='поиск'; 
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
                 
+                
                 SubmitDown();
-                 
+                
                 //document.getElementById("progressBar").style.visibility = 'visible';
                 //document.getElementById("div").style.visibility = 'visible';
                 jQuery(function($){
@@ -110,6 +114,7 @@
                     }                
                 });
                 $.ajax();
+                document.getElementById("title").innerHTML = titleval;
             }
             function focusBody(){
                 /*Выполняется при клике на первый слой за прогрессбаром
