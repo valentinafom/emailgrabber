@@ -73,9 +73,8 @@
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
-                //document.getElementById("title")='поиск';
-                var titleval = document.getElementById("title").value; 
-                document.getElementById("title").innerHTML ='поиск'; 
+                var titleval = document.getElementById("maintitle").innerHTML; 
+                document.getElementById("maintitle").innerHTML ='поиск'; 
                 bool=0;
                 id = setInterval("doAnimation()", 400);
                 document.getElementById("progressBar").innerHTML = 'поиск';
@@ -114,7 +113,7 @@
                     }                
                 });
                 $.ajax();
-                document.getElementById("title").innerHTML = titleval;
+                document.getElementById("maintitle").innerHTML = titleval;
             }
             function focusBody(){
                 /*Выполняется при клике на первый слой за прогрессбаром
