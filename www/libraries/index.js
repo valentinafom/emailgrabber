@@ -11,9 +11,9 @@ var selectChange = 0;// новый сайт из списка не выбира�
 //Используется в SaveTextarea как текущий элемент input site
 var indexSelect=0;
             
-            function SaveTextarea(){
-                //Сохраняем данные из textarea в DataArray
-                var text = document.getElementById("textarea").value;	
+function SaveTextarea(){
+    //Сохраняем данные из textarea в DataArray
+    var text = document.getElementById("textarea").value;	
 						
     var array = new Array();
     var MyRegExp = /[\w-_А-Яа-я ]+/g;
@@ -33,65 +33,74 @@ function SubmitDown(){
     //$.toJSON() из библиотеки library\jquery.json-2.3.js(плагин к jquery)
     // toJSON с ассоциативными массивами неработает
 	
-                //DataArray кодируется в JSON и присваивается скрытому полю data
+    //DataArray кодируется в JSON и присваивается скрытому полю data
 		
     var checkTextarea = SaveTextarea();
     if(checkTextarea==0){
         return 0;
     }
                 
-                var encoded = $.toJSON(DataArray);
-                var hidden = document.getElementById("data");
-                hidden.value = encoded;			
-            }
-            function doAnimation(){
-                /**
+    var encoded = $.toJSON(DataArray);
+    var hidden = document.getElementById("data");
+    hidden.value = encoded;			
+}
+function doAnimation(){
+    /**
                  *Меняет прогресс бар непосредственно
                  */
-                if(bool==1){
-                    clearInterval(id);
-                    return;
-                }
-                if(iteration==0){
-                    document.getElementById("progressBar").innerHTML = '&nbsp;поиск.';
-                    iteration++;
-                    return;
-                }
-                if(iteration==1){
-                    document.getElementById("progressBar").innerHTML = '&nbsp;&nbsp;поиск..';
-                    iteration++;
-                    return;
-                }
-                if(iteration==2){
-                    document.getElementById("progressBar").innerHTML = '&nbsp;&nbsp;&nbsp;поиск...';
-                    iteration++;
-                    return;
-                }
-                if(iteration==3){
-                    document.getElementById("progressBar").innerHTML = 'поиск';
-                    iteration=0;
-                    return;
-                }	
+    if(bool==1){
+        clearInterval(id);
+        return;
+    }
+    if(iteration==0){
+        document.getElementById("progressBar").innerHTML = '&nbsp;поиск.';
+        iteration++;
+        return;
+    }
+    if(iteration==1){
+        document.getElementById("progressBar").innerHTML = '&nbsp;&nbsp;поиск..';
+        iteration++;
+        return;
+    }
+    if(iteration==2){
+        document.getElementById("progressBar").innerHTML = '&nbsp;&nbsp;&nbsp;поиск...';
+        iteration++;
+        return;
+    }
+    if(iteration==3){
+        document.getElementById("progressBar").innerHTML = 'поиск';
+        iteration=0;
+        return;
+    }	
 	
-            }
-            function SubmitDownAjax(){
-                /*
+}
+function SubmitDownAjax(){
+    /*
                  *Выполняется при нажатии на кнопку "поиск"
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
-                bool=0;
-                id = setInterval("doAnimation()", 400);
-                document.getElementById("progressBar").innerHTML = 'поиск';
+    var titleval = window.document.title;   
+    window.document.title = "Поиск...";
                 
-                SubmitDown();
+    bool=0;
+    id = setInterval("doAnimation()", 400);
+    document.getElementById("progressBar").innerHTML = 'поиск';
+                
+    SubmitDown();
                  
-                //document.getElementById("progressBar").style.visibility = 'visible';
-                //document.getElementById("div").style.visibility = 'visible';
-                jQuery(function($){
-                    $("#progressBar").css({"visibility":"visible","opacity":"0"}).fadeTo(300,1);
-                    $("#div").css({"visibility":"visible","opacity":"0"}).fadeTo(300,0.5);
-                })
+    //document.getElementById("progressBar").style.visibility = 'visible';
+    //document.getElementById("div").style.visibility = 'visible';
+    jQuery(function($){
+        $("#progressBar").css({
+            "visibility":"visible",
+            "opacity":"0"
+        }).fadeTo(300,1);
+        $("#div").css({
+            "visibility":"visible",
+            "opacity":"0"
+        }).fadeTo(300,0.5);
+    })
 	
     var checkTextarea = SubmitDown();
     if(checkTextarea==0){
@@ -104,52 +113,52 @@ function SubmitDown(){
     var url = document.getElementById("url").value;   
     var depth = document.getElementById("depth").value; 
 	
-                var url = "parser_curl.php?submit=" + 1 + "&data=" + data + "&url=" + url+ "&depth=" + depth;
+    var url = "parser_curl.php?submit=" + 1 + "&data=" + data + "&url=" + url+ "&depth=" + depth;
             	
-                /* var request = new HttpRequest(url,SubmitDownAjax_callBack);
+    /* var request = new HttpRequest(url,SubmitDownAjax_callBack);
                 request.send();*/
-                $.ajaxSetup({
-                    "type":"Get",
-                    "url":url,
-                    "success":function(sResponseText){
-                        bool=1;
-                        if(sResponseText==0){
-                            document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google';
-                        }
-                        else{
-                            window.document.title = titleval;
-                            document.getElementById("progressBar").innerHTML = 'Поиск завершен';
-                            document.getElementById("result").innerHTML = sResponseText;
-                            document.getElementById("div").style.height = getDocumentHeight()+'px';
-                        }
-                    }                
-                });
-                $.ajax();
+    $.ajaxSetup({
+        "type":"Get",
+        "url":url,
+        "success":function(sResponseText){
+            bool=1;
+            if(sResponseText==0){
+                document.getElementById("progressBar").innerHTML = 'Парсер заблокирован google';
             }
-            function focusBody(){
-                /*Выполняется при клике на первый слой за прогрессбаром
+            else{
+                window.document.title = titleval;
+                document.getElementById("progressBar").innerHTML = 'Поиск завершен';
+                document.getElementById("result").innerHTML = sResponseText;
+                document.getElementById("div").style.height = getDocumentHeight()+'px';
+            }
+        }                
+    });
+    $.ajax();
+}
+function focusBody(){
+    /*Выполняется при клике на первый слой за прогрессбаром
                  *убирает прогресс бар
                  **/
-                if(bool==1&&move==0){
-                    //document.getElementById("progressBar").style.visibility = 'hidden';
-                    //document.getElementById("div").style.visibility = 'hidden';
-                    jQuery(function($){
-                        $("#progressBar").fadeOut(300);
-                        $("#div").fadeOut(300);
-                    })
-                }
-            }
-            function focusPbDouble(){
-            /*Выполняется при 2-ом клике на прогресс баре
+    if(bool==1&&move==0){
+        //document.getElementById("progressBar").style.visibility = 'hidden';
+        //document.getElementById("div").style.visibility = 'hidden';
+        jQuery(function($){
+            $("#progressBar").fadeOut(300);
+            $("#div").fadeOut(300);
+        })
+    }
+}
+function focusPbDouble(){
+    /*Выполняется при 2-ом клике на прогресс баре
              *убирает прогрессбар
              **/
-                if(bool==1&&move==0){
-                    jQuery(function($){
-                        $("#progressBar").fadeOut(300);
-                        $("#div").fadeOut(300);
-                    })
-                }
-            }
+    if(bool==1&&move==0){
+        jQuery(function($){
+            $("#progressBar").fadeOut(300);
+            $("#div").fadeOut(300);
+        })
+    }
+}
          
 
 

@@ -105,7 +105,7 @@ $xml .= "</resultEmail>";
 $xml = urlencode($xml);
 ?><form action="result.php" method="post">
     <input type="hidden" name="resultEmail" value="<?php echo $xml;?>" />  
-    <input type="submit" value="Result.xml"/>
+    <input type="submit" id="1" style="display: none;" value="Result.xml"/>
     <br/>
     <ul class="buttonUl"><li id="1_0" class="button" onmousedown="$('#1_0').css({'background':'#2FAA00','color':'white'});"
                              onmouseup='$("#1_0").css({"background":"#A6A6A6","color":"black"});'
