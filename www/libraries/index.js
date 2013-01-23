@@ -80,8 +80,7 @@ function SubmitDownAjax(){
                  *передает данные скрипту посредствоя аякс
                  *ждет ответа, ответ выводит в элементе result
                  **/
-    var titleval = window.document.title;   
-    window.document.title = "Поиск...";
+    var titleval = window.document.title;  
                 
     bool=0;
     id = setInterval("doAnimation()", 400);
@@ -109,6 +108,7 @@ function SubmitDownAjax(){
         return;
     }
     
+    window.document.title = "Поиск...";
     var data = document.getElementById("data").value;
     var url = document.getElementById("url").value;   
     var depth = document.getElementById("depth").value; 
